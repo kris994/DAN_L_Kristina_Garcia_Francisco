@@ -8,6 +8,18 @@ namespace DAN_L_Kristina_Garcia_Francisco.Helper
     class Validations
     {
         /// <summary>
+        /// Valid positive int input
+        /// </summary>
+        public string ValidPositiveNumber(int? number, int maxNumber)
+        {
+            if (number < 0 || number > maxNumber)
+            {
+                return "The number cannot be bigger than " + maxNumber;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Checks if the password is correct
         /// </summary>
         /// <param name="password">the password we are checking</param>

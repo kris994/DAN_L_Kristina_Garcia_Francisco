@@ -17,8 +17,11 @@ CREATE TABLE tblUser(
 USE AudioDB
 CREATE TABLE tblSong(
 	SongID INT IDENTITY(1,1) PRIMARY KEY 	NOT NULL,
-	SongName VARCHAR (40) UNIQUE			NOT NULL,
+	SongName VARCHAR (40)       			NOT NULL,
 	SongAuthor VARCHAR (40)					NOT NULL,
-	SongLength VARCHAR (10)					NOT NULL,
+	SongSeconds INT,							
+	SongMinutes	INT,
+	SongHours INT,						
+	UserID INT FOREIGN KEY REFERENCES tblUser(UserID),
 );
 

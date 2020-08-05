@@ -69,19 +69,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helper\SongTimeConverter.cs" />
     <Compile Include="Helper\Validations.cs" />
-    <Compile Include="Model\LoggedUser.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="View\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Model\AudioDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,12 +86,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AudioDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\LoggedUser.cs" />
+    <Compile Include="Model\Song.cs" />
     <Compile Include="Model\tblSong.cs">
       <DependentUpon>AudioDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblUser.cs">
       <DependentUpon>AudioDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="ViewModel\AddSongViewModel.cs" />
+    <Compile Include="ViewModel\AllSongsViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="View\AddSong.xaml.cs">
+      <DependentUpon>AddSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Songs.xaml.cs">
+      <DependentUpon>Songs.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,8 +148,8 @@
     <Content Include="DDL\DDL.sql" />
     <Content Include="Model\AudioDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AudioDB.Context.cs</LastGenOutput>
       <DependentUpon>AudioDB.edmx</DependentUpon>
+      <LastGenOutput>AudioDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\AudioDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -154,11 +161,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\AddSong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserWindow.xaml">
+    <Page Include="View\Songs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

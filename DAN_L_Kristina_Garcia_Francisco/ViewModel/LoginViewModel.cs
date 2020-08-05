@@ -114,11 +114,12 @@ namespace DAN_L_Kristina_Garcia_Francisco.ViewModel
                         Username = UserList[i].Username,
                         UserPassword = UserList[i].UserPassword
                     };
+
                     InfoLabel = "Logged in";
                     found = true;
-                    UserWindow users = new UserWindow();
+                    Songs song = new Songs();
                     view.Close();
-                    users.Show();
+                    song.Show();
                     break;
                 }
             }
@@ -151,9 +152,9 @@ namespace DAN_L_Kristina_Garcia_Francisco.ViewModel
                             UserPassword = User.UserPassword
                         };
 
-                        UserWindow users = new UserWindow();
+                        Songs song = new Songs();
                         view.Close();
-                        users.Show();
+                        song.Show();
                     }
                     else
                     {

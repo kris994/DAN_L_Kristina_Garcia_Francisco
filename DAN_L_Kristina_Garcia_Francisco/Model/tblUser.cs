@@ -14,8 +14,17 @@ namespace DAN_L_Kristina_Garcia_Francisco.Model
     
     public partial class tblUser
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblUser()
+        {
+            this.tblSongs = new HashSet<tblSong>();
+        }
+    
         public int UserID { get; set; }
         public string Username { get; set; }
         public string UserPassword { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblSong> tblSongs { get; set; }
     }
 }
