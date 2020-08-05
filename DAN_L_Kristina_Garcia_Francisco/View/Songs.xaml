@@ -23,6 +23,9 @@
                     Command="{Binding Logoff, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
             <Button Width="80" Height="20" Name="btnAddSong" Content="Add Song"
                     Command="{Binding AddNewSong, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
+            <Button Width="80" Height="20" Name="btnReproduction" Content="Reproduction"
+                    Command="{Binding Reproduction}" Margin="4" FontWeight="Bold"/>
+            <Label  Margin="20,4,4,4" HorizontalAlignment="Center" Content="{Binding InfoLabel, Mode=OneWay}"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="2" Height="auto" Width="auto">
             <DataGrid Name="DataGridSong" ItemsSource="{Binding AllCurrentUsersSongs, UpdateSourceTrigger=PropertyChanged}"

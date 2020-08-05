@@ -4,6 +4,7 @@ using DAN_L_Kristina_Garcia_Francisco.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,6 +17,8 @@ namespace DAN_L_Kristina_Garcia_Francisco.ViewModel
     {
         Songs songWindow;
         Service service = new Service();
+        ReadWriteFile rwf = new ReadWriteFile();
+        public static bool printing = false;
 
         #region Constructor
         /// <summary>
@@ -80,7 +83,24 @@ namespace DAN_L_Kristina_Garcia_Francisco.ViewModel
                 song = value;
                 OnPropertyChanged("Song");
             }
-        }     
+        }
+
+        /// <summary>
+        /// Login info label
+        /// </summary>
+        private string infoLabel;
+        public string InfoLabel
+        {
+            get
+            {
+                return infoLabel;
+            }
+            set
+            {
+                infoLabel = value;
+                OnPropertyChanged("InfoLabel");
+            }
+        }
         #endregion
 
         #region Commands
@@ -233,6 +253,57 @@ namespace DAN_L_Kristina_Garcia_Francisco.ViewModel
         private bool CanLogoffExecute()
         {
             return true;
+        }
+
+        /// <summary>
+        /// Command that tries to reproduction the song
+        /// </summary>
+        private ICommand reproduction;
+        public ICommand Reproduction
+        {
+            get
+            {
+                if (reproduction == null)
+                {
+                    reproduction = new RelayCommand(param => ReproductionExecute(), param => CanReproductionExecute());
+                }
+                return reproduction;
+            }
+        }
+
+        /// <summary>
+        /// Executes the reproduction command
+        /// </summary>
+        private void ReproductionExecute()
+        {
+            try
+            {
+                Thread startPrinting = new Thread(() => rwf.WriteReproductionToFile(Song))
+                {
+                    Name = "Printer"
+                };
+                startPrinting.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Checks if its possible to reproduction
+        /// </summary>
+        /// <returns>true if a song is selected</returns>
+        private bool CanReproductionExecute()
+        {
+            if (Song != null && printing == false)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
     }
