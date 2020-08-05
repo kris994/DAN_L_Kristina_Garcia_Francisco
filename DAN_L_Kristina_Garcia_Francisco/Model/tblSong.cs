@@ -17,6 +17,11 @@ namespace DAN_L_Kristina_Garcia_Francisco.Model
         public int SongID { get; set; }
         public string SongName { get; set; }
         public string SongAuthor { get; set; }
-        public string SongLength { get; set; }
+        public Nullable<int> SongSeconds { get; set; }
+        public Nullable<int> SongMinutes { get; set; }
+        public Nullable<int> SongHours { get; set; }
+        public Nullable<int> UserID { get; set; }
+    
+        public virtual tblUser tblUser { get; set; }
     }
 }

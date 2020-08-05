@@ -4,9 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ba6637f1588545d7ba2dfcf6391ff69b" Name="Diagram1">
-        <EntityTypeShape EntityType="AudioDBModel.tblSong" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AudioDBModel.tblUser" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="5dc6bc7666d342639675b927e58a2a3f" Name="Diagram1">
+        <EntityTypeShape EntityType="AudioDBModel.tblSong" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AudioDBModel.tblUser" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="AudioDBModel.FK__tblSong__UserID__34C8D9D1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
