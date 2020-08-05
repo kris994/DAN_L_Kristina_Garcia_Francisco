@@ -87,6 +87,7 @@
       <DependentUpon>AudioDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\LoggedUser.cs" />
+    <Compile Include="Model\ReadWriteFile.cs" />
     <Compile Include="Model\Song.cs" />
     <Compile Include="Model\tblSong.cs">
       <DependentUpon>AudioDB.tt</DependentUpon>
